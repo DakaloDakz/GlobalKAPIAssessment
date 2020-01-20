@@ -1,0 +1,606 @@
+{
+	"info": {
+		"_postman_id": "2db0c911-48fb-4e52-a5d5-519e8296b8c1",
+		"name": "GlobalKineticAPITest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"item": [
+				{
+					"name": "Ping the API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d4523c60-a2fc-416a-a1d5-f6516721f2c7",
+								"exec": [
+									"pm.test(\"Status code is 201\", () => pm.response.to.have.status(201))",
+									"",
+									"pm.test('Content-Type header is correct', () => pm.response.to.have.header('Content-Type', 'text/plain; charset=utf-8'))"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "945042dc-1d26-4f1d-8505-61d928416bac",
+								"exec": [
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/ping",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get all Bookings",
+			"item": [
+				{
+					"name": "Get all bookings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1d436a72-c0cc-4fee-9f43-bd017d0d373f",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/booking",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all bookings with all parameters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad5bef30-100d-4785-a8da-5429888ac700",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/booking?firstname=Dakalo&lastname=Ndou&checkin=2020-01-15&checkout=2020-01-19",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "firstname",
+									"value": "Dakalo"
+								},
+								{
+									"key": "lastname",
+									"value": "Ndou"
+								},
+								{
+									"key": "checkin",
+									"value": "2020-01-15"
+								},
+								{
+									"key": "checkout",
+									"value": "2020-01-19"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all bookings with the firstname and last name parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5c3d0ae0-921d-417a-9f6c-46e2c0babe0f",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://restful-booker.herokuapp.com/booking?firstname=Dakalo&lastname=Ndou",
+							"protocol": "https",
+							"host": [
+								"restful-booker",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "firstname",
+									"value": "Dakalo"
+								},
+								{
+									"key": "lastname",
+									"value": "Ndou"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all bookings with the firstname  parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e9268b31-7153-4d71-afec-55bdd4da3716",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/booking?firstname=Dakalo",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "firstname",
+									"value": "Dakalo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all bookings with the lastname parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3c767f8f-6fa4-425d-92ae-f63492b3a922",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/booking?lastname=Ndou",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "lastname",
+									"value": "Ndou"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all bookings with the checkin parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ff9c0cc8-c43b-4a11-b4ef-53faf8bbb96c",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/booking?checkin=2020-01-15",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "checkin",
+									"value": "2020-01-15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all bookings with the checkout parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "991c2171-653f-40bc-abe2-75ee116aeca2",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/booking?checkout=2020-01-19",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"booking"
+							],
+							"query": [
+								{
+									"key": "checkout",
+									"value": "2020-01-19"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get a single booking",
+			"item": [
+				{
+					"name": "Get a single booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3256a4a9-3b40-4f79-85ee-84f21070fd08",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))",
+									"",
+									"pm.test('Content-Type header is correct', () => pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8'))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/booking/17",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"booking",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single booking dynamically",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "87aa1fc1-66cf-4596-bb6e-ec84494274bd",
+								"exec": [
+									"pm.environment.set(\"booking_id\", _.random(1,10))"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7f1529fa-a58b-4d9b-a8b1-651483fa26e8",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))",
+									"    ",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/booking/{{booking_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"booking",
+								"{{booking_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bed71d80-d8ce-4cdb-8a88-29bf0e78c8d4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "44406529-93e1-4cb2-9f9f-68d1caa5cc9e",
+						"type": "text/javascript",
+						"exec": [
+							"if(pm.response.to.have.header('Content-Type') === 'application/json; charset=utf-8') {",
+							"    pm.test(\"Response data format is correct\", () => {",
+							"    var jsonData = pm.response.json()",
+							"    pm.expect(jsonData.firstname).to.be.a('string')",
+							"    pm.expect(jsonData.lastname).to.be.a('string')",
+							"    pm.expect(jsonData.totalprice).to.a('number')",
+							"    pm.expect(jsonData.depositpaid).to.be.a('boolean')",
+							"    pm.expect(jsonData.bookingdates.checkin).to.be.a('string')",
+							"    pm.expect(jsonData.bookingdates.checkin).to.match(/^\\d{4}-\\d{2}-\\d{2}$/)",
+							"    pm.expect(jsonData.bookingdates.checkout).to.be.a('string')",
+							"    pm.expect(jsonData.bookingdates.checkout).to.match(/^\\d{4}-\\d{2}-\\d{2}$/)",
+							"});",
+							"",
+							"(pm.response.json().additionalneeds === undefined ? pm.test.skip : pm.test)('Customer has additional needs', () => {",
+							"        pm.expect(pm.response.json().additionalneeds).to.be.a('string')",
+							"});",
+							"}",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Create a new booking",
+			"item": [
+				{
+					"name": "Dynamically create a new booking with JSON",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f4db6ba1-d350-4d89-a62b-97543a0886df",
+								"exec": [
+									"pm.sendRequest(\"https://randomuser.me/api/\", (err, res) => {",
+									"    var firstname = res.json().results[0].name.first",
+									"    var lastname  = res.json().results[0].name.last",
+									"    pm.environment.set(\"first_name\", JSON.stringify((_.capitalize(firstname))))",
+									"    pm.environment.set(\"last_name\", JSON.stringify((_.capitalize(lastname))))",
+									"})",
+									"",
+									"pm.environment.set(\"total_price\", _.random(0, 1000))",
+									"",
+									"const depositPaid = [true, false]",
+									"pm.environment.set(\"depositPaid\", _.shuffle(depositPaid)[0])",
+									"",
+									"const moment = require('moment')",
+									"pm.environment.set(\"check_in\", JSON.stringify(moment().format('YYYY-MM-DD')))",
+									"pm.environment.set(\"check_out\", JSON.stringify(moment().add(_.random(1, 14), 'days').format('YYYY-MM-DD')))",
+									"",
+									"const items = [\"None\", \"Breakfast\", \"Lunch\", \"Dinner\", \"Late Checkout\", \"Newspaper\", \"Extra Pillow\"]",
+									"pm.environment.set(\"additional_needs\", JSON.stringify(_.shuffle(items)[0]))"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "34a00c54-ce1d-4a19-9ff4-59ffc06f5e39",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))",
+									"",
+									"function cleanup() {",
+									"    const clean = ['first_name', 'last_name', 'total_price', 'depositPaid', 'check_in', 'check_out', 'additional_needs']",
+									"    for(let i = 0; i < clean.length; ++i){",
+									"        pm.environment.unset(clean[i])",
+									"    }",
+									"}",
+									"cleanup()",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"firstname\" : {{first_name}},\r\n\t\"lastname\" : {{last_name}},\r\n\t\"totalprice\" : {{total_price}},\r\n\t\"depositpaid\" : {{depositPaid}},\r\n\t\"additionalneeds\" : {{additional_needs}},\r\n\t\"bookingdates\" : {\r\n\t\t\"checkin\" : {{check_in}},\r\n\t\t\"checkout\" : {{check_out}}\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/booking",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new booking with JSON",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "eeb0b51e-2c47-4271-8399-7fd1cd934d72",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "748f8788-42bc-4765-a013-0795b357b67b",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstname\" : \"Dakalo\",\r\n\t\"lastname\" : \"Ndou\",\r\n\t\"totalprice\" : 111,\r\n\t\"depositpaid\" : true,\r\n\t\"additionalneeds\" : \"Breakfast\",\r\n\t\"bookingdates\" : {\r\n\t\t\"checkin\" : \"2020-01-15\",\r\n\t\t\"checkout\" : \"2020-01-19\"\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/booking",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "dc3d0ab5-1b11-4abe-b203-7240dc6b3fd7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3dfdde3a-f257-4fde-8b54-9301f0e4f6c8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
